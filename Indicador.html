@@ -1,0 +1,992 @@
+<div id="conteinerB">
+
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+  <figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+    </p>
+  </figure>
+
+  <style>
+    #container {
+      height: 400px;
+    }
+
+    .highcharts-figure,
+    .highcharts-data-table table {
+      min-width: 310px;
+      max-width: 800px;
+      margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+      font-family: Verdana, sans-serif;
+      border-collapse: collapse;
+      border: 1px solid #EBEBEB;
+      margin: 10px auto;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .highcharts-data-table caption {
+      padding: 1em 0;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .highcharts-data-table th {
+      font-weight: 600;
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table td,
+    .highcharts-data-table th,
+    .highcharts-data-table caption {
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr,
+    .highcharts-data-table tr:nth-child(even) {
+      background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+      background: #f1f7ff;
+    }
+
+    .highcharts-tooltip>span {
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+
+
+  <script type="text/javascript">
+
+
+    window.addEventListener("load", function () {
+      document.getElementById("conteinerB").style.display = "none";
+      setTimeout(function () {
+        document.getElementById("conteinerB").style.display = "";
+
+        try {
+
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl04_f23708\\:27881c > ul > li > div > div") //febrero string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl06_f23708\\:27881c > ul > li > div > div") // marzo string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl08_f23708\\:27881c > ul > li > div > div") // abril string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl10_f23708\\:27881c > ul > li > div > div") // mayo string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl12_f23708\\:27881c > ul > li > div > div") // junio string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl14_f23708\\:27881c > ul > li > div > div") // julio string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl16_f23708\\:27881c > ul > li > div > div") // septiembre string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl18_f23708\\:27881c > ul > li > div > div") //  oktubre string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl20_f23708\\:27881c > ul > li > div > div") // noviembre string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl22_f23708\\:27881c > ul > li > div > div") // diciembre string
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl24_f23708\\:27881c > ul > li > div > div") // diciembre string 2
+
+
+          
+          // try {
+          //   anioEne = document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl02_f23708\\:30411c > ul > li > div > div").textContent
+          // } catch (error) {
+          //   anioEne = null
+          // }
+
+          // // console.log(anioEne)
+          
+
+          // definir las variables de los años que van a estar en los arrays
+          let anioEne; 
+          let anioFeb;
+          let anioMar;
+          let anioAbr;
+          let anioMay;
+          let anioJun;
+          let anioJul;
+          let anioAgo;
+          let anioSep;
+          let anioOct;
+          let anioNov;
+          let anioDic;
+          
+
+          // val document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl02_f23708\\:27881c > ul > li > div > div")
+          // año document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl02_f23708\\:30411c > ul > li > div > div")
+          
+          
+          let enero;
+          try {
+            enero = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl04_f23769\\:27698c > ul > li > div > div").textContent
+            anioEne = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl04_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            enero = null
+          }
+
+          let febrero;
+          try {
+            febrero = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl06_f23769\\:27698c > ul > li > div > div").textContent
+            anioFeb = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl06_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            febrero = null
+          }
+
+          let marzo;
+          try {
+            marzo = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl08_f23769\\:27698c > ul > li > div > div").textContent
+            anioMar = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl08_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            marzo = null
+          }
+
+          let abril;
+          try {
+            abril = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl10_f23769\\:27698c > ul > li > div > div").textContent
+            anioAbr = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl10_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            abril = null
+          }
+
+          let mayo;
+          try {
+            mayo = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl12_f23769\\:27698c > ul > li > div > div").textContent
+            anioMay = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl12_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            mayo = null
+          }
+
+          let junio;
+          try {
+            junio = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl14_f23769\\:27698c > ul > li > div > div").textContent
+            anioJun = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl14_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            junio = null
+          }
+
+          let julio;
+          try {
+            julio = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl16_f23769\\:27698c > ul > li > div > div").textContent
+            anioJul = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl16_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            julio = null
+          }
+          let agosto;
+          try {
+            agosto = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl18_f23769\\:27698c > ul > li > div > div").textContent
+            anioAgo = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl18_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            agosto = null
+          }
+
+          let septiembre;
+          try {
+            septiembre = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl20_f23769\\:27698c > ul > li > div > div").textContent
+            anioSep = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl20_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            septiembre = null
+          }
+
+          let octubre;
+          try {
+            octubre = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl22_f23769\\:27698c > ul > li > div > div").textContent
+            anioOct = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl22_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            octubre = null
+          }
+
+          let noviembre;
+          try {
+            noviembre =  document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl24_f23769\\:27698c > ul > li > div > div").textContent
+            anioNov = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl24_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            noviembre = null
+          }
+
+          let diciembre;
+          try {
+            diciembre = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl26_f23769\\:27698c > ul > li > div > div").textContent
+            anioDic = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl26_f23769\\:27860c > ul > li > div > div").textContent
+          } catch (error) {
+            diciembre = null
+          }
+
+
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl04_f23708\\:23713c") // valor febrero
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl06_f23708\\:23713c") // valor Marzo
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl08_f23708\\:23713c") // valor abril
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl10_f23708\\:23713c") // valor mayo
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl12_f23708\\:23713c") // valor junio
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl14_f23708\\:23713c") // valor julio
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl16_f23708\\:23713c") // valor septiembre
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl18_f23708\\:23713c") // valor oktubre
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl20_f23708\\:23713c") // valor noviembre
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl22_f23708\\:23713c") // valor diciembre
+          //document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl24_f23708\\:23713c") // valor diciembre 2
+
+
+          //valores
+
+          let eneroVal;
+          try {
+            eneroVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl04_f23769\\:23774c").textContent.replace(",","."))
+            // atrapa NaN que nace de parseFloat de un null 
+            if (isNaN(eneroVal)) {
+              eneroVal = null
+            }
+          } catch (error) {
+            eneroVal = null
+          }
+
+
+          let febreroVal;
+          try {
+            febreroVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl06_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(febreroVal)) {
+              febreroVal = null
+
+            }
+          } catch (error) {
+            febreroVal = null
+          }
+
+          let marzoVal;
+          try {
+            marzoVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl08_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(marzoVal)) {
+              marzoVal = null
+            }
+          } catch (error) {
+            marzoVal = null
+          }
+
+          let abrilVal;
+          try {
+            abrilVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl10_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(abrilVal)) {
+              abrilVal = null
+            }
+          } catch (error) {
+            abrilVal = null
+          }
+
+          let mayoVal;
+          try {
+            mayoVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl12_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(mayoVal)) {
+              mayoVal = null
+            }
+          }
+          catch (error) {
+            mayoVal = null
+          }
+
+          let junioVal;
+          try {
+            junioVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl14_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(junioVal)) {
+              junioVal = null
+            }
+          } catch (error) {
+            junioVal = null
+          }
+
+          let julioVal;
+          try {
+            julioVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl16_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(julioVal)) {
+              julioVal = null
+            }
+          } catch (error) {
+            julioVal = null
+          }
+
+          let agostoVal
+          try {
+            agostoVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl18_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(agostoVal)) {
+              agostoVal = null
+            }
+          } catch (error) {
+            agostoVal = null
+          }
+          let septiembreVal;
+          try {
+            septiembreVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl20_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(septiembreVal)) {
+              septiembreVal = null
+            }
+          } catch (error) {
+            septiembreVal = null
+          }
+
+          let octubreVal;
+          try {
+            octubreVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl22_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(octubreVal)) {
+              octubreVal = null
+            }
+          } catch (error) {
+            octubreVal = null
+          }
+
+          let noviembreVal;
+          try {
+            noviembreVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl24_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(noviembreVal)) {
+              noviembreVal = null
+            }
+          } catch (error) {
+            noviembreVal = null
+          }
+
+          let diciembreVal;
+          try {
+            diciembreVal = parseFloat(document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl26_f23769\\:23774c").textContent.replace(",","."))
+            if (isNaN(diciembreVal)) {
+              diciembreVal = null
+            }
+          } catch (error) {
+            diciembreVal = null
+          }
+
+          // // let marzoVal = asignarValor1(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl10_f23708\\:23713c"))
+          // console.log(marzoVal)
+          // let abrilVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl08_f23708\\:23713c")) || null
+          // console.log(abrilVal)
+          // let mayoVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl06_f23708\\:23713c")) || null
+          // console.log(mayoVal)
+          // // || asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl06_f23708\\:23713c"))  
+          // let junioVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl04_f23708\\:23713c")) || null
+          // console.log(junioVal)
+          // let julioVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ctl02_f23708\\:23713c")) || null
+          // console.log(julioVal)
+          // let agostoVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ct100_f23708\\:23713c")) || null
+          // console.log(agostoVal)
+          // let septiembreVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ct098_f23708\\:23713c")) || null
+          // console.log(septiembreVal)
+          // let octubreVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ct096_f23708\\:23713c")) || null
+          // console.log(octubreVal)
+          // let noviembreVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ct094_f23708\\:23713c")) || null
+          // console.log(noviembreVal)
+          // let diciembreVal = asignarValor(document.querySelector("#master_DefaultContent_rts_s8816_f23708srvgrid_ctl00_ct092_f23708\\:23713c")) || null
+          // console.log(diciembreVal)
+          // poner dentro de try catch, text content aca, canth null
+
+
+
+
+          //
+
+          //colores rango
+          // saco el ultimo valor del umbral del color y asi marco hasta donde llega
+
+          let umbralRojoN = -50
+
+
+          // poner try catc, parse float y text content, catch null
+
+          // hasta donde llega cada umbral, no su valor verdadero
+
+          let primerUmbral;
+          try {
+            primerUmbral = parseFloat(document.querySelector("#master_DefaultContent_rts_s8263_f27782c").textContent.replace(",","."))
+            if (isNaN(primerUmbral)) { primerUmbral = null }
+          } catch (error) {
+            primerUmbral = null
+          }
+
+          let segundoUmbral;
+          try {
+            segundoUmbral = parseFloat(document.querySelector("#master_DefaultContent_rts_s8263_f27784c").textContent.replace(",","."))
+            if (isNaN(segundoUmbral)) { segundoUmbral = null }
+          } catch (error) {
+            segundoUmbral = null
+          }
+
+          let tercerUmbral;
+          try {
+            tercerUmbral = parseFloat(document.querySelector("#master_DefaultContent_rts_s8263_f27786c").textContent.replace(",","."))
+            if (isNaN(tercerUmbral)) { tercerUmbral = null }
+          } catch (error) {
+            tercerUmbral = null
+          }
+
+          let cuartoUmbral;
+          try {
+            cuartoUmbral = parseFloat(document.querySelector("#master_DefaultContent_rts_s8263_f27788c").textContent.replace(",","."))
+            if (isNaN(cuartoUmbral)) { cuartoUmbral = null }
+          } catch (error) {
+            cuartoUmbral = null
+          }
+
+          let quintoUmbral;
+          try {
+            quintoUmbral = parseFloat(document.querySelector("#master_DefaultContent_rts_s8263_f27790c").textContent.replace(",","."))
+            if (isNaN(quintoUmbral)) { quintoUmbral = null }
+          } catch (error) {
+            quintoUmbral = null
+          }
+
+
+          // let primerUmbral = asignarValor(document.querySelector("#master_DefaultContent_rts_s8814_f27905c")) || null
+          // console.log(primerUmbral)
+          // let segundoUmbral = asignarValor(document.querySelector("#master_DefaultContent_rts_s8814_f27907c")) || null
+          // console.log(segundoUmbral)
+          // let tercerUmbral = asignarValor(document.querySelector("#master_DefaultContent_rts_s8814_f27909c")) || null
+          // console.log(tercerUmbral)
+          // let cuartoUmbral = asignarValor(document.querySelector("#master_DefaultContent_rts_s8814_f27911c")) || null
+          // console.log(cuartoUmbral)
+          // let quintoUmbral = asignarValor(document.querySelector("#master_DefaultContent_rts_s8814_f27913c")) || null
+          // console.log(quintoUmbral)
+
+
+          // try catcj, text content, null -> pasar en un swithc sus valores, y asignar color
+
+          
+          let colorPrimerUmbral;
+          try {
+            colorPrimerUmbral = document.querySelector("#master_DefaultContent_rts_s8263_f25440c > ul > li > div > div > img").alt
+            colorPrimerUmbral = asignarColor(colorPrimerUmbral)
+          } catch (error) {
+            colorPrimerUmbral = null
+          }
+
+          let colorSegundoUmbral;
+          try {
+            colorSegundoUmbral = document.querySelector("#master_DefaultContent_rts_s8263_f25441c > ul > li > div > div > img").alt
+            colorSegundoUmbral = asignarColor(colorSegundoUmbral)
+          } catch (error) {
+            colorSegundoUmbral = null
+          }
+
+          let colorTercerUmbral;
+          try {
+            colorTercerUmbral = document.querySelector("#master_DefaultContent_rts_s8263_f25442c > ul > li > div > div > img").alt
+            colorTercerUmbral = asignarColor(colorTercerUmbral)
+          } catch (error) {
+            colorTercerUmbral = null
+          }
+
+          let colorCuartoUmbral;
+          try {
+            colorCuartoUmbral = document.querySelector("#master_DefaultContent_rts_s8263_f25443c > ul > li > div > div > img").alt
+            colorCuartoUmbral = asignarColor(colorCuartoUmbral)
+          } catch (error) {
+            colorCuartoUmbral = null
+          }
+
+          let colorQuintoUmbral;
+          try {
+            colorQuintoUmbral = document.querySelector("#master_DefaultContent_rts_s8263_f25444c > ul > li > div > div > img").alt
+            colorQuintoUmbral = asignarColor(colorQuintoUmbral)
+          } catch (error) {
+            colorQuintoUmbral = null
+          }
+
+
+          // sacando cuentas de valores del color, no de sus rangos
+          let valPrimerUmbral = primerUmbral
+          let valSegundoUmbral = segundoUmbral - primerUmbral
+          let valTercerUmbral = tercerUmbral - segundoUmbral
+          let valCuartoUmbral = cuartoUmbral - tercerUmbral
+          let valQuintoUmbral = quintoUmbral - cuartoUmbral
+
+
+          // switch color
+
+          function asignarColor(umbral) {
+
+            try {
+              switch (umbral) {
+
+                case "Rojo":
+                  return "#cc0000";
+
+                case "Amarillo":
+                  return "#ffff00";
+
+                case "Verde":
+                  return "#00bb2d";
+                default:
+                  return "black";
+              }
+            } catch (error) {
+              console.log("Error color")
+            }
+
+          };
+
+
+          // sin actividad 
+          
+          let act1;
+          try {
+            act1 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl04_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act1 = null
+          }
+
+          let act2;
+          try {
+            act2 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl06_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act2 = null
+          }
+
+          let act3;
+          try {
+            act3 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl08_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act3 = null
+          }
+
+          let act4;
+          try {
+            act4 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl10_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act4 = null
+          }
+
+          let act5;
+          try {
+            act5 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl12_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act5 = null
+          }
+
+          let act6;
+          try {
+            act6 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl14_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act6 = null
+          }
+
+          let act7;
+          try {
+            act7 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl16_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act7 = null
+          }
+
+          let act8; 
+          try {
+            act8 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl18_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act8 = null
+          }
+
+          let act9;
+          try {
+            act9 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl20_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act9 = null
+          }
+
+          let act10;
+          try {
+            act10 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl22_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act10 = null
+          }
+
+          let act11;
+          try {
+            act11 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl24_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act11 = null
+          }
+
+          let act12;
+          try {
+            act12 = document.querySelector("#master_DefaultContent_rts_s8265_f23769srvgrid_ctl00_ctl26_f23769\\:28722c > ul > li > div > div").textContent
+          } catch (error) {
+            act12 = null
+          }
+
+
+          // let colorPrimerUmbral = asignarColor(document.querySelector("#master_DefaultContent_rts_s8814_f23676c > ul > li > div > div > img")) || null
+          // console.log(colorPrimerUmbral)
+          // let colorSegundoUmbral = asignarColor(document.querySelector("#master_DefaultContent_rts_s8814_f23677c > ul > li > div > div > img")) || null
+          // console.log(colorSegundoUmbral)
+          // let colorTercerUmbral = asignarColor(document.querySelector("#master_DefaultContent_rts_s8814_f23678c > ul > li > div > div > img")) || null
+          // console.log(colorTercerUmbral)
+          // let colorCuartoUmbral = asignarColor(document.querySelector("#master_DefaultContent_rts_s8814_f23679c > ul > li > div > div > img")) || null
+          // console.log(colorCuartoUmbral)
+          // let colorQuintoUmbral = asignarColor(document.querySelector("#master_DefaultContent_rts_s8814_f23680c > ul > li > div > div > img")) || null
+          // console.log(colorQuintoUmbral)
+
+          // colores para cada umbral
+          // let colorPrimerUmbral = asignarColor('Rojo') || null
+          // let colorSegundoUmbral = asignarColor('Verde') || null
+          // let colorTercerUmbral = asignarColor('Rojo') || null
+          // let colorCuartoUmbral = asignarColor('Amarillo') || null
+          // let colorQuintoUmbral = asignarColor('Verde') || null
+
+          
+          // arrays usados para graficar, su longitud esta determinada por cantidad de var numericas de valores
+          var valores = [eneroVal, febreroVal, marzoVal, abrilVal, mayoVal, junioVal, julioVal, agostoVal, septiembreVal, octubreVal, noviembreVal, diciembreVal]
+          var mesesV = [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+          var arrayAnios = [anioEne, anioFeb, anioMar, anioAbr, anioMay, anioJun, anioJul, anioAgo, anioSep, anioOct, anioNov, anioDic]
+          
+          let primerUmbralFinal = [valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral, valPrimerUmbral]
+          let segundoUmbralFinal = [valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral, valSegundoUmbral]
+          let tercerUmbralFinal = [valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral, valTercerUmbral]
+          let cuartoUmbralFinal = [valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral, valCuartoUmbral]
+          let quintoUmbralFinal = [valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral, valQuintoUmbral]
+          
+          let negativoUmbralfinal = [umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN, umbralRojoN]
+          // sacar nulos de meses y crear nuevo array de meses
+          
+          let actOriginal = [act1,act2,act3,act4,act5,act6,act7,act8,act9,act10,act11,act12]
+          console.log("Array sin antividad: ", actOriginal)
+
+
+          // saca nulls
+          
+          let valenT = valores.length;
+          let aniosFinal = []
+          let meses = []
+          let noAct = []
+          for (let i = 0; i < valenT; i++) {
+            if (arrayAnios[i] != null) {
+              meses.push(mesesV[i]);
+              aniosFinal.push(arrayAnios[i]);
+              noAct.push(actOriginal[i]);
+            }
+          }
+          
+          console.log("Array de años",aniosFinal)
+          console.log("no act:", noAct)
+          // sacar nulos de años y crear nuevo
+          let valenM = meses.length;
+          let arrayMenN = []
+          for (let i = 0; i < valenM; i++) {
+            if (meses[i] != null) {
+              arrayMenN.push(meses[i]);
+            }
+          }
+          // arrayMenN.unshift()
+          console.log("Array de meses",arrayMenN);
+
+
+          // sacar nulos de valores y crear nuevo array de valores
+          let valen = valores.length;
+          let arrayValN = []
+          for (let i = 0; i < valen; i++) {
+            if (arrayAnios[i] != null) {
+              arrayValN.push(valores[i]);
+            }
+          }
+          console.log("Array de valores",arrayValN);
+  
+
+
+// let noAnios =["2020","2020","2020","2100","2018","2018","2020","2020","2019","2019",]
+// let noMeses = ["Noviembre", "Abril", "Mayo","Junio","Septiembre","Enero", "Octubre","Marzo","Diciembre","Diciembre"]
+// let noValores = [25, 18, 19 ,22 , 19, 18, 22, 24, 24, 24];
+
+
+
+
+
+
+
+var aniosDef = [];
+var mesesDef = [];
+var valDef = [];
+var actividadDef = [];
+
+
+
+function ordenarArray(arrayAnios, arrayMeses,arrayValores,arrayActividad){
+    let newArray = []
+for (let i =0; i < arrayMeses.length; i++)
+ {
+   switch(arrayMeses[i])
+   {
+     case 'Enero':
+       newArray.push('A');
+       break;
+     case 'Febrero':
+       newArray.push('B');
+       break;
+     case 'Marzo':
+       newArray.push('C');
+       break;
+     case 'Abril':
+       newArray.push('D');
+       break;
+
+     case 'Mayo':
+       newArray.push('E');
+       break;
+
+     case 'Junio':
+       newArray.push('F');
+       break;
+
+     case 'Julio':
+       newArray.push('G');
+       break;
+     case 'Agosto':
+       newArray.push('H');
+       break;
+     case 'Septiembre':
+       newArray.push('I');
+       break;
+     case 'Octubre':
+       newArray.push('J');
+       break;
+     case 'Noviembre':
+       newArray.push('K');
+       break;
+     case 'Diciembre':
+       newArray.push('L');
+       break;        
+
+
+   }
+
+
+
+
+
+
+}
+
+ let mesesAlm = []
+ let list = []
+ //Junta en una lista todos los arrays para relacionarlos
+for (let j = 0; j < newArray.length; j++)
+{ 
+    list.push({'meses': newArray[j], 'valor': arrayValores[j], 'anios': arrayAnios[j],'actividad': arrayActividad[j]});
+}
+
+
+ list.sort(function(a, b) 
+{
+    return ((a.meses < b.meses) ? -1 : ((a.meses == b.meses) ? 0 : 1));
+});
+
+
+ list.sort(function(a, b) 
+{
+    return ((a.anios < b.anios) ? -1 : ((a.anios == b.anios) ? 0 : 1));
+});
+
+console.log(list)
+for (let k = 0; k < list.length; k++) 
+{
+    mesesAlm[k] = list[k].meses;
+    valDef[k] = list[k].valor;
+    aniosDef[k] = list[k].anios;
+    actividadDef[k] = list[k].actividad;
+} 
+
+
+for (let i =0; i < mesesAlm.length; i++)
+ {
+   switch(mesesAlm[i])
+   {
+     case 'A':
+       mesesDef.push('Enero');
+       break;
+     case 'B':
+       mesesDef.push('Febrero');
+       break;
+     case 'C':
+       mesesDef.push('Marzo');
+       break;
+     case 'D':
+       mesesDef.push('Abril');
+       break;
+
+     case 'E':
+       mesesDef.push('Mayo');
+       break;
+     case 'F':
+       mesesDef.push('Junio');
+       break;
+     case 'G':
+       mesesDef.push('Julio');
+       break;
+     case 'H':
+       mesesDef.push('Agosto');
+       break;
+     case 'I':
+       mesesDef.push('Septiembre');
+       break;
+     case 'J':
+       mesesDef.push('Octubre');
+       break;
+     case 'K':
+       mesesDef.push('Noviembre');
+       break;
+     case 'L':
+       mesesDef.push('Diciembre');
+       break;        
+
+
+   }
+
+
+ }
+let NuevoArray = []
+//pregunta si en cada uno la actividad es "Si" o si hay algùn valor nulo y cambia sus respectivos valores.
+for(let i = 0; i < mesesDef.length; i++)
+{
+  if(list[i].actividad == "Si"|| list[i].actividad == "si" || list[i].actividad == "SI")
+  {
+    NuevoArray.push(mesesDef[i] + '<br>' + aniosDef[i] + '<br> <b>S/A</b>')
+    valDef[i] = '  '
+  }
+  else if(list[i].valor == null)
+  {
+    NuevoArray.push(mesesDef[i] + '<br>' +  aniosDef[i] + '<br> <b>S/D</b>')
+    valDef[i] = '  '
+  }
+  else
+  {
+    NuevoArray.push(mesesDef[i] + '<br>' + aniosDef[i])
+  }
+}
+mesesDef = NuevoArray
+
+
+}
+ordenarArray(arrayAnios, meses, arrayValN,noAct)
+console.log(mesesDef)
+console.log(valDef)
+console.log(aniosDef)
+console.log(actividadDef)
+
+
+
+
+
+
+
+          //sacar valor minimo para graficar
+          var min = valDef[0];
+
+          for (var i = 0; i < valDef.length; i++) {
+            if (valDef[i] < min) {
+              min = valDef[i];
+
+              if (min > 0) {
+                min = 0
+              }
+            }
+          }
+          console.log("El minimo es:",min)
+
+
+          // sacamos la longitud de los valores a eliminar y los sacamos de las columnas
+          let longitudEliminar = valores.length - arrayValN.length
+          console.log("arrayvalN:",arrayValN)
+
+          primerUmbralFinal.length = primerUmbralFinal.length - longitudEliminar
+          segundoUmbralFinal.length = segundoUmbralFinal.length - longitudEliminar
+          tercerUmbralFinal.length = tercerUmbralFinal.length - longitudEliminar
+          negativoUmbralfinal.length = negativoUmbralfinal.length - longitudEliminar
+          cuartoUmbralFinal.length = cuartoUmbralFinal.length - longitudEliminar
+          quintoUmbralFinal.length = quintoUmbralFinal.length - longitudEliminar
+
+
+
+          Highcharts.chart('container', {
+            chart: {
+              type: 'column'
+            },
+            title: {
+              text: '',
+            },
+            xAxis: {
+              labels: {
+                allowOverlap: true,
+                autoRotation: undefined
+            },
+              categories: mesesDef,
+            },
+            yAxis: {
+              min: min,
+              title: {
+                text: 'Campo de Datos'
+              },
+            },
+            tooltip: {
+              shared: false,
+              useHTML: true,
+            },
+            plotOptions: {
+              column: {
+                stacking: 'number',
+              },
+              series: {
+                states: {
+                  inactive: {
+                    opacity: 1
+                  }
+                }
+              }
+            },
+            series: [
+              {
+                name: '',
+                data: primerUmbralFinal,
+                color: colorTercerUmbral,
+              },
+              {
+                name: '',
+                data: segundoUmbralFinal,
+                color: colorSegundoUmbral,
+              },
+              {
+                name: '',
+                data: tercerUmbralFinal,
+                color: colorPrimerUmbral,
+              },
+              {
+                name: '',
+                data: negativoUmbralfinal,
+                color: '#cc0000',
+              },
+              {
+                name: '',
+                data: cuartoUmbralFinal,
+                color: colorCuartoUmbral,
+              },
+              {
+                name: '',
+                data: quintoUmbralFinal,
+                color: colorQuintoUmbral,
+              },
+              {
+                name: 'Valor',
+                type: 'line',
+                data: valDef,
+                color: '#48f',
+              }
+            ],
+
+          });
+
+          /* footer.com */
+          let footer = document.querySelector(".highcharts-credits").style.display = 'none';
+
+
+
+        } catch (error) {
+          document.getElementById("conteinerB").style.display = "none";
+          throw new Error(error.message);
+        }
+      }, 500);
+    }, false);
+
+
+  </script>
+</div>

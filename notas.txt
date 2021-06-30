@@ -1,0 +1,6 @@
+
+
+
+S/D   -  campo sin actividad = no / mes sin valor
+
+S/A   -  campo sin actividad = si / mes sin valor
